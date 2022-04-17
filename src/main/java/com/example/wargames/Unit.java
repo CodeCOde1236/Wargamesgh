@@ -1,3 +1,5 @@
+package com.example.wargames;
+
 public abstract class Unit {
 
     private String name;
