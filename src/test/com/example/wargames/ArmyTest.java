@@ -62,14 +62,9 @@ class ArmyTest {
                 RangedUnit unitOne = new RangedUnit("unitOne", 30);
                 InfantryUnit unitTwo = new InfantryUnit("unitTwo", 30);
                 CommanderUnit unitThree = new CommanderUnit("unitThree", 30);
-                armyOne.add(unitOne);
-                armyOne.add(unitTwo);
-                armyOne.add(unitThree);
+                armyOne.addAll(List.of(unitOne, unitTwo, unitThree));
 
-                List<Unit> testList = new ArrayList<Unit>();
-                testList.add(unitOne);
-                testList.add(unitTwo);
-                testList.add(unitThree);
+                List<Unit> testList = List.of(unitOne, unitTwo, unitThree);
 
                 Assertions.assertEquals(armyOne.getAllUnits(), testList);
 
