@@ -105,6 +105,10 @@ public class Controller {
     private TextArea myArmyBattle;
 
 
+    /**
+     * Creates army unit and writes to MyArmy csv file
+     * @param event Button click event
+     */
     @FXML
     void createUnit(ActionEvent event) {
         UnitFactory UnitRegister = new UnitFactory("UnitRegister");
@@ -152,6 +156,10 @@ public class Controller {
 
     }
 
+    /**
+     * Deletes army unit and writes to EnemyArmy csv file
+     * @param event Button click event
+     */
     @FXML
     void deleteUnit(ActionEvent event) {
 
@@ -199,6 +207,10 @@ public class Controller {
 
     }
 
+    /**
+     * Creates enemy unit and writes to EnemyArmy csv file
+     * @param event Button click event
+     */
     @FXML
     void createEnemyUnit(ActionEvent event) {
         UnitFactory UnitRegister = new UnitFactory("UnitRegister");
@@ -246,6 +258,10 @@ public class Controller {
 
     }
 
+    /**
+     * Deletes enemy unit, reads from csv file first
+     * @param event Button click event
+     */
     @FXML
     void deleteEnemyUnit(ActionEvent event) {
 
@@ -292,6 +308,10 @@ public class Controller {
 
     }
 
+    /**
+     * Starts battle
+     * @param event Button click event
+     */
     @FXML
     void battleBegin(ActionEvent event) {
         UnitFactory UnitRegisterEnemy = new UnitFactory("UnitRegisterEnemy");
@@ -319,10 +339,10 @@ public class Controller {
         FileController checkerMe = new FileController();
 
 
-        String resultMe = checker.readFile(army);
-        String[] savedMe = result.split("\\s+");
+        String resultMe = checkerMe.readFile(army);
+        String[] savedMe = resultMe.split("\\s+");
 
-        for(int i = 1; i < saved.length; i++){
+        for(int i = 1; i < savedMe.length; i++){
             String laved = savedMe[i];
             String[] splitSave = laved.split(",");
 
@@ -353,6 +373,11 @@ public class Controller {
 
     }
 
+    /**
+     *
+     * @param event Switchces to the MyArmy scene
+     * @throws IOException Mandatory exception
+     */
 
     public void switchToMyArmy(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("MyArmy.fxml"));
@@ -364,6 +389,11 @@ public class Controller {
     }
 
 
+    /**
+     * Switches to EnemyArmy scene
+     * @param event Button click event
+     * @throws IOException Mandatory exception
+     */
     public void switchToEnemy(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("EnemyArmy.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -373,6 +403,11 @@ public class Controller {
         stage.show();
     }
 
+    /**
+     * Switches to BattleScene scene
+     * @param event Button click event
+     * @throws IOException Mandatory exception
+     */
     public void switchToBattleScene(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("BattleScene.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
@@ -382,6 +417,11 @@ public class Controller {
         stage.show();
     }
 
+    /**
+     * Switches to main menu
+     * @param event Button click event
+     * @throws IOException Mandatory exception
+     */
     public void switchToMenu(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();

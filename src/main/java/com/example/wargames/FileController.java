@@ -8,6 +8,11 @@ public class FileController {
     public FileController() {
     }
 
+    /**
+     * Creates a csv file for the army
+     * @param army Army to be read
+     * @return Returns csv file contents
+     */
     public String readFile(Army army) {
         String file = army.getName() + ".txt";
         BufferedReader reader = null;
@@ -47,6 +52,10 @@ public class FileController {
 
     }
 
+    /**
+     * Writes army into a csv file
+     * @param army Army object to be recorded
+     */
     public void writeFile(Army army){
         String text = army.getName() + ".txt";
         try {

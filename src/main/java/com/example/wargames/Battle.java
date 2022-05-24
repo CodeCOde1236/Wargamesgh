@@ -13,6 +13,10 @@ public class Battle {
         this.armyTwo = armyTwo;
     }
 
+    /**
+     * Simulates battle between two armies
+     * @return Returns winner
+     */
     public Army simulate(){
         Army winner;
         int turnCount = 1;

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -21,6 +22,11 @@
                   <Button fx:id="btnEnemyCreate" layoutX="476.0" layoutY="42.0" mnemonicParsing="false" onAction="#createEnemyUnit" prefHeight="26.0" prefWidth="94.0" text="Create unit" />
                   <Label layoutX="389.0" layoutY="14.0" text="No. of units" />
                   <TextField fx:id="noEnemyCreate" layoutX="383.0" layoutY="43.0" prefHeight="26.0" prefWidth="75.0" />
+                  <Label layoutX="8.0" layoutY="71.0" prefHeight="21.0" prefWidth="447.0" text="Options: CavalryUnit, CommanderUnit, RangedUnit, InfantryUnit">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
@@ -34,7 +40,7 @@
                   <Button fx:id="btnEnemyDelete" layoutX="480.0" layoutY="32.0" mnemonicParsing="false" onAction="#deleteEnemyUnit" prefHeight="28.0" prefWidth="100.0" text="Delete unit" />
                   <Label layoutX="387.0" layoutY="14.0" text="No. of units" />
                   <TextField fx:id="noEnemyDelete" layoutX="378.0" layoutY="35.0" prefHeight="26.0" prefWidth="80.0" />
-                  <Button fx:id="btnNextBattle" layoutX="536.0" layoutY="66.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="31.0" prefWidth="62.0" text="Next" />
+                  <Button fx:id="btnNextBattle" layoutX="536.0" layoutY="66.0" mnemonicParsing="false" onAction="#switchToMenu" prefHeight="31.0" prefWidth="62.0" text="Menu" />
                </children>
             </AnchorPane>
          </items>

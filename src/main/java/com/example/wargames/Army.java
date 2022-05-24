@@ -33,6 +33,10 @@ public class Army {
         units.remove(unit);
     }
 
+    /**
+     * Checks if the army has remaining units
+     * @return True if army has units, else false
+     */
     public boolean hasUnits(){
         boolean returnVal = false;
         if(units.size() > 0){
