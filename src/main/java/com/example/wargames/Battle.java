@@ -17,7 +17,7 @@ public class Battle {
         Army winner;
         int turnCount = 1;
         Random random = new Random();
-        while(armyOne.getAllUnits().size() > 0 || armyTwo.getAllUnits().size() > 0){
+        while(!armyOne.getAllUnits().isEmpty() && !armyTwo.getAllUnits().isEmpty()){
 
             Unit armyOneUnit = armyOne.getRandom();
             Unit armyTwoUnit = armyTwo.getRandom();
@@ -30,14 +30,17 @@ public class Battle {
             }
             else{
                 armyTwoUnit.attack(armyOneUnit);
+                if(armyOneUnit.getHealth() <= 0){
+                    armyOne.remove(armyOneUnit);
+                }
             }
             turnCount++;
         }
-        if(armyOne.getAllUnits().size() > 0){
-            winner = armyOne;
+        if(armyOne.getAllUnits().size() == 0){
+            winner = armyTwo;
         }
         else{
-            winner = armyTwo;
+            winner = armyOne;
         }
         return winner;
     }

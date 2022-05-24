@@ -29,16 +29,18 @@ public class UnitFactory {
         if(type.equals("RangedUnit")){
             newUnit = new RangedUnit(name, health);
         }
+
+        unitList.add(newUnit);
+
         return newUnit;
     }
 
     public List<Unit> unitSearch(String type, String name, int health){
 
         List<Unit> searchRes = new ArrayList<Unit>();
-        //units.stream().filter(p -> p instanceof CommanderUnit ).collect(Collectors.toList());
 
-        for(int i = 0; i < unitList.size(); i++){
-            searchRes.add(unitList.get(i));
+        for (Unit unit : unitList) {
+            searchRes.add(unit);
         }
 
         searchRes = searchRes.stream().filter(p -> p instanceof CavalryUnit ).filter(n -> n.getName().equals(name)).filter(h -> h.getHealth() == health).collect(Collectors.toList());

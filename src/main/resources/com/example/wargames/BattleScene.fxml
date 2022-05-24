@@ -1,11 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.wargames.Controller">
    <top>
-      <Button mnemonicParsing="false" text="Button" BorderPane.alignment="CENTER" />
+      <TextField editable="false" prefHeight="26.0" prefWidth="88.0" text="My army                                                                       Battle                                                               Enemy army" BorderPane.alignment="CENTER" />
    </top>
+   <left>
+      <TextArea fx:id="myArmyBattle" editable="false" prefHeight="286.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
+   </left>
+   <right>
+      <TextArea fx:id="enemyArymyBattle" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
+   </right>
+   <center>
+      <TextArea fx:id="BattleView" editable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" BorderPane.alignment="CENTER" />
+   </center>
+   <bottom>
+      <SplitPane dividerPositions="0.5" prefHeight="57.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <items>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="115.0" layoutY="12.0" mnemonicParsing="false" onAction="#switchToMenu" text="Menu" />
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#battleBegin" text="Start battle!" />
+               </children>
+            </AnchorPane>
+         </items>
+      </SplitPane>
+   </bottom>
 </BorderPane>

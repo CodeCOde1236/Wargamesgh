@@ -8,8 +8,8 @@ public class FileController {
     public FileController() {
     }
 
-    public String readFile(Army army) throws IOException {
-        String file = army.getName();
+    public String readFile(Army army) {
+        String file = army.getName() + ".txt";
         BufferedReader reader = null;
         String result = "";
 
@@ -21,10 +21,10 @@ public class FileController {
                 String[] row = line.split("\n");
 
                 for(String index : row){
-                    System.out.printf("%-10s", index);
+                    //System.out.printf("%-10s", index);
                     result += index + " ";
                 }
-                System.out.println();
+                //System.out.println();
 
             }
 
@@ -48,7 +48,7 @@ public class FileController {
     }
 
     public void writeFile(Army army){
-        String text = army.getName() + "txt";
+        String text = army.getName() + ".txt";
         try {
             File file = new File(text);
 
@@ -56,8 +56,19 @@ public class FileController {
 
             writer.write(army.getName()+"\n");
 
-            for(Unit infantry : army.getInfantryUnits()){
-                writer.append(String.format("Infantry,%s,%d\n", infantry.getName(), infantry.getHealth()));
+            for(Unit unit : army.getAllUnits()){
+                if(unit instanceof InfantryUnit){
+                    writer.append(String.format("InfantryUnit,%s,%d\n", unit.getName(), unit.getHealth()));
+                }
+                if(unit instanceof CavalryUnit){
+                    writer.append(String.format("CavalryUnit,%s,%d\n", unit.getName(), unit.getHealth()));
+                }
+                if(unit instanceof CommanderUnit){
+                    writer.append(String.format("CommanderUnit,%s,%d\n", unit.getName(), unit.getHealth()));
+                }
+                if(unit instanceof RangedUnit){
+                    writer.append(String.format("RangedUnit,%s,%d\n", unit.getName(), unit.getHealth()));
+                }
             }
 
             writer.close();
@@ -68,15 +79,4 @@ public class FileController {
 
     }
 
-    public static void main(String[] args){
-        Army army = new Army("ARM");
-        InfantryUnit unitOne = new InfantryUnit("unitOne", 30);
-        InfantryUnit unitTwo = new InfantryUnit("unitTwo", 30);
-        CommanderUnit unitThree = new CommanderUnit("unitThree", 30);
-        army.addAll(List.of(unitOne, unitTwo, unitThree));
-
-        FileController write = new FileController();
-        write.writeFile(army);
-
-    }
 }

@@ -7,4 +7,5 @@ module com.example.wargames {
 
     opens com.example.wargames to javafx.fxml;
     exports com.example.wargames;
+
 }
